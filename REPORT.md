@@ -1,12 +1,21 @@
 # Observations
 
-## Experiment 1: Using Synchronization
+## Scenario 1: Using Synchronization
 - Ensures correct ticket count at the end.
-- Prevents race conditions.
+- No overbooking
+- Output is consistente with the expected number of remaining tickets.
 
-## Experiment 2: Using `volatile` without Synchronization
-- Does not guarantee consistent results.
-- Threads may read outdated values, leading to overselling tickets.
+## Scenario  2: Using `volatile` without Synchronization
+- Multiple threads may book the same ticket simultaneously.
+- Overbooking might occur.
+- The final ticket count may not be correct.
+
+## Scenario  3: Removing volatile and synchronization
+- Severe race conditions.
+- Results vary each time the program runs.
+- Overbooking is highly likely.
 
 ## Conclusion
-Synchronization is required to maintain consistency. The `volatile` keyword alone is not sufficient because it does not provide atomicity.
+- Best Practice: Use synchronized for thread-safe booking.
+- volatile alone is not enough: It ensures visibility but not atomicity.
+- Without synchronization, the system is inconsistent.
