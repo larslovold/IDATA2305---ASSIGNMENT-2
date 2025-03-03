@@ -1,5 +1,8 @@
 package booking;
 
+// manages ticket availability
+//uses synchropnized in bookTicket() to ensure thread safe booking.. 
+
 public class MovieTicketServer {
     private String movieName;
     private volatile int availableTickets;

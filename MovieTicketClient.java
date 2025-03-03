@@ -1,5 +1,8 @@
 package booking;
 
+//represenmts a user booking tickets.
+//runs in a seperate thread
+
 public class MovieTicketClient extends Thread {
     private MovieTicketServer ticketServer;
     private String customerName;
