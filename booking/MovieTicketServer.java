@@ -12,7 +12,7 @@ public class MovieTicketServer {
         this.availableTickets = availableTickets;
     }
 
-    public boolean bookTicket(String customerName, int requestedTickets) {
+    public synchronized boolean bookTicket(String customerName, int requestedTickets) {
         if (requestedTickets <= availableTickets) {
             System.out.println(customerName + " booked " + requestedTickets + " tickets for " + movieName);
             availableTickets -= requestedTickets;
